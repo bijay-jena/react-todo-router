@@ -1,17 +1,17 @@
 import React from "react";
-import { useSearchParams } from "react-router-dom";
 import "./details.css";
+import { useLocation } from "react-router-dom";
 const Details = () => {
-  const [searchParams] = useSearchParams();
-  const todoString = searchParams.get("todoList");
-  const todoArray = todoString.split(",");
+  const location = useLocation();
+  const { todoList } = location.state;
+
   return (
     <div>
       <div>Details</div>
       <div class="table-wrapper">
         <table>
           <tbody>
-            {todoArray.map((todo, i) => (
+            {todoList.map((todo, i) => (
               <tr key={i}>
                 <td>{todo}</td>
               </tr>

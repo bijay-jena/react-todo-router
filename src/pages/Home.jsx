@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import TodoList from "../components/TodoList";
 import TodoLogger from "../components/TodoLogger";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
   const [input, setInput] = useState("");
   const [todos, setTodos] = useState([]);
 
@@ -33,7 +34,15 @@ const Home = () => {
       <button onClick={addTodo}>Add Todo</button>
       <TodoList todos={todos} updateTodos={setTodos} />
       <TodoLogger todos={todos} />
-      <Link to={`/details?todoList=${todos}`}>Details</Link>
+      {/* <Link to={`/details?todoList=${todos}`}>Details</Link>
+       */}
+
+      <button
+        type="button"
+        onClick={() => navigate("/details", { state: { todoList: todos } })}
+      >
+        Details
+      </button>
     </div>
   );
 };
