@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import TodoDetails from "./pages/TodoDetails";
 import Navbar from "./components/Navbar";
+import Details from "./pages/Details";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/details" element={<Details />} />
         <Route path="/todo/:id" element={<TodoDetails />} />
       </Routes>
     </BrowserRouter>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import TodoList from "../components/TodoList";
 import TodoLogger from "../components/TodoLogger";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [input, setInput] = useState("");
@@ -32,6 +33,7 @@ const Home = () => {
       <button onClick={addTodo}>Add Todo</button>
       <TodoList todos={todos} updateTodos={setTodos} />
       <TodoLogger todos={todos} />
+      <Link to={`/details?todoList=${todos}`}>Details</Link>
     </div>
   );
 };
